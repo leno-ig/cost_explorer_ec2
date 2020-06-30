@@ -1,0 +1,13 @@
+# ports rule => project_no{2}service_no{3}
+# ex. 30080 means project_no=30, service_no=080
+version: '3.4'
+services:
+  ruby:
+    build: 
+      context: .
+    working_dir: /myapp
+    command: irb -I ./lib -r cost_explorer_ec2
+    volumes:
+      - .:/myapp
+    stdin_open: true
+    tty: true
